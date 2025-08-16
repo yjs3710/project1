@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>프론트에서 백엔드 호출</title>
+</head>
+<body>
+  <h1>서버에서 데이터 받아오기</h1>
+  <button id="loadBtn">데이터 불러오기</button>
+  <p id="result">결과가 여기에 표시됩니다</p>
+
+  <script>
+    document.getElementById("loadBtn").addEventListener("click", async () => {
+      const response = await fetch("/api/data");
+      const data = await response.json();
+      document.getElementById("result").textContent = "서버 응답: " + data.message;
+    });
+  </script>
+</body>
